@@ -28,8 +28,7 @@ public class Speaker {
     @JsonIgnore
     private List<Session> sessions;
 
-    public Speaker() {
-    }
+    public void Speaker() {}
 
     public byte[] getSpeaker_photo() {
         return speaker_photo;
@@ -39,16 +38,16 @@ public class Speaker {
         this.speaker_photo = speaker_photo;
     }
 
+    public Long getSpeaker_id() {
+        return speaker_id;
+    }
+
     public List<Session> getSessions() {
         return sessions;
     }
 
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
-    }
-
-    public Long getSpeaker_id() {
-        return speaker_id;
     }
 
     public void setSpeaker_id(Long speaker_id) {
@@ -94,4 +93,5 @@ public class Speaker {
     public void setSpeaker_bio(String speaker_bio) {
         this.speaker_bio = speaker_bio;
     }
+
 }

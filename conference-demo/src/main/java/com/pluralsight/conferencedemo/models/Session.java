@@ -19,11 +19,11 @@ public class Session {
     @JoinTable(
             name = "session_speakers",
             joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "speaker_id"))
+            inverseJoinColumns = @JoinColumn(name = "speaker_id")
+    )
     private List<Speaker> speakers;
 
-    public Session() {
-    }
+    public void Session() {}
 
     public List<Speaker> getSpeakers() {
         return speakers;
@@ -31,14 +31,6 @@ public class Session {
 
     public void setSpeakers(List<Speaker> speakers) {
         this.speakers = speakers;
-    }
-
-    public Long getSession_id() {
-        return session_id;
-    }
-
-    public void setSession_id(Long session_id) {
-        this.session_id = session_id;
     }
 
     public String getSession_name() {
@@ -63,5 +55,13 @@ public class Session {
 
     public void setSession_length(Integer session_length) {
         this.session_length = session_length;
+    }
+
+    public Long getSession_id() {
+        return session_id;
+    }
+
+    public void setSession_id(Long session_id) {
+        this.session_id = session_id;
     }
 }

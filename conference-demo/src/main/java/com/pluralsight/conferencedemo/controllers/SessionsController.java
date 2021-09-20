@@ -1,7 +1,7 @@
 package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.Session;
-import com.pluralsight.conferencedemo.repositories.SessionRepository;
+import com.pluralsight.conferencedemo.repositories.ISessionRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/sessions")
 public class SessionsController {
     @Autowired
-    private SessionRepository sessionRepository;
+    private ISessionRepository sessionRepository;
 
     @GetMapping
     public List<Session> list() {
@@ -26,7 +26,7 @@ public class SessionsController {
     }
 
     @PostMapping
-    public Session create(@RequestBody final Session session){
+    public Session create(@RequestBody final Session session) {
         return sessionRepository.saveAndFlush(session);
     }
 
@@ -44,5 +44,4 @@ public class SessionsController {
         BeanUtils.copyProperties(session, existingSession, "session_id");
         return sessionRepository.saveAndFlush(existingSession);
     }
-
 }
